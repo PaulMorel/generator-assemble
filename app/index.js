@@ -2,7 +2,9 @@
 
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
+var util = require('util');
+//var genUtils = require('../../util.js');
+//var chalk = require('chalk');
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -27,12 +29,12 @@ module.exports = yeoman.generators.Base.extend({
     generateFolders: function(){
         this.sourceRoot(path.join(__dirname, 'templates'));
 
-        genUtils.processDirectory(this, 'src', 'src');
+        util.processDirectory(this, 'src', 'src');
 
     },
 
     generateFiles: function() {
-        this.template('_package.json', 'package.json');    
+        this.template('_package.json', 'package.json');
     },
 
     end: function() {

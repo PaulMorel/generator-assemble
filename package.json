@@ -21,7 +21,7 @@
         "grunt"
     ],
 	"dependencies": {
-		"yeoman-generator": "^0.17.0",
+		"yeoman-generator": "^0.17.0"
 	},
 	"peerDependencies": {
 		"yo": ">=1.0.0"
