@@ -4,7 +4,7 @@
 	"description": "Rigel is a Yeoman generator that uses Grunt, LESS and Assemble.",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/PaulMorel/generator-rigel.git"
+		"url": "git://github.com/PaulMorel/generator-rigel"
 	},
     "author": {
     	"name": "Paul Morel",
@@ -19,5 +19,11 @@
         "less",
         "assemble",
         "grunt"
-    ]
+    ],
+	"dependencies": {
+		"yeoman-generator": "^0.17.0",
+	},
+	"peerDependencies": {
+		"yo": ">=1.0.0"
+	}
 }
