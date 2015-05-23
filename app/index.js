@@ -3,8 +3,6 @@
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var util = require('util');
-//var genUtils = require('../../util.js');
-//var chalk = require('chalk');
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -16,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
 
     	var prompts = [{
     		name: 'projectName',
-    		message: 'What is your projects\'s name ?'
+    		message: 'What is your project\'s name ?'
     	}];
 
     	this.prompt(prompts, function(props) {
@@ -27,14 +25,33 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     generateFolders: function(){
-        this.sourceRoot(path.join(__dirname, 'templates'));
+      this.mkdir('src');
 
-        util.processDirectory(this, 'src', 'src');
+      this.mkdir('src/assets');
+      this.mkdir('src/assets/less');
+      this.mkdir('src/assets/js');
+      this.mkdir('src/assets/js/lib');
+      this.mkdir('src/assets/img');
+      this.mkdir('src/assets/type');
 
+      this.mkdir('src/pages');
+
+      this.mkdir('src/templates');
+      this.mkdir('src/templates/layouts');
+      this.mkdir('src/templates/partials');
     },
 
     generateFiles: function() {
         this.template('_package.json', 'package.json');
+        this.template('_README.md', 'README.md');
+        this.template('_Gruntfile.js', 'Gruntfile.js');
+        this.copy('_gitignore', '.gitignore');
+
+        this.copy('_less/normalize.less', 'src/assets/less/normalize.less');
+        this.template('_less/styles.less', 'src/assets/less/styles.less');
+
+        this.template('_pages/index.md', 'src/pages/index.md');
+        this.template('_layouts/default.hbs', 'src/templates/layouts/default.hbs');
     },
 
     end: function() {

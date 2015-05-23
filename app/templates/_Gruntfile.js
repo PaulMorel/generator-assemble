@@ -1,6 +1,4 @@
 // Grunt Configuration
-// Date: 	Created on 2015-04-24
-// Author: 	Paul Morel
 module.exports = function(grunt) {
 
 	// Task Configuration

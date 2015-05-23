@@ -6,4 +6,5 @@
 
 ## Usage
 
-Run `npm install`.
+1. Run `npm install`.
+2. Run `grunt`.
