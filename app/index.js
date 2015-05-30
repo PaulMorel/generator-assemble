@@ -50,6 +50,7 @@ module.exports = yeoman.generators.Base.extend({
         this.template('_README.md', 'README.md');
         this.template('_Gruntfile.js', 'Gruntfile.js');
         this.copy('_gitignore', '.gitignore');
+        this.copy('_editorconfig', '.editorconfig');
 
         this.copy('_less/normalize.less', 'src/assets/less/normalize.less');
         this.template('_less/styles.less', 'src/assets/less/styles.less');

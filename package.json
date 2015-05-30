@@ -1,6 +1,6 @@
 {
 	"name": "generator-rigel",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Rigel is a Yeoman generator that uses Grunt, LESS and Assemble to creat static sites.",
 	"license": "MIT",
 	"main": "app/index.js",
@@ -8,20 +8,20 @@
 		"type": "git",
 		"url": "git://github.com/PaulMorel/generator-rigel"
 	},
-    "author": {
-    	"name": "Paul Morel",
-    	"email": "hello@paulmorel.com",
-    	"url": "https://github.com/PaulMorel"
-    },
+	"author": {
+		"name": "Paul Morel",
+		"email": "hello@paulmorel.com",
+		"url": "https://github.com/PaulMorel"
+	},
 	"files": [
 		"app"
 	],
 	"keywords": [
-        "yeoman-generator",
-        "less",
-        "assemble",
-        "grunt"
-    ],
+		"yeoman-generator",
+		"less",
+		"assemble",
+		"grunt"
+	],
 	"dependencies": {
 		"yeoman-generator": "^0.17.0"
 	},
