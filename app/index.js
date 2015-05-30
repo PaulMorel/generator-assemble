@@ -14,11 +14,15 @@ module.exports = yeoman.generators.Base.extend({
 
     	var prompts = [{
     		name: 'projectName',
-    		message: 'What is your project\'s name ?'
-    	}];
+    		message: 'What is your project\'s name?'
+    	}, {
+            name: 'author',
+            message: 'What is your name?'
+        }];
 
     	this.prompt(prompts, function(props) {
     		this.projectName = props.projectName;
+            this.author = props.author;
 
     		done();
     	}.bind(this));
@@ -55,7 +59,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     end: function() {
-      this.installDependencies({
+      this.npmInstall({
         skipInstall: this.options['skip-install']
       });
     }
