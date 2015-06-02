@@ -24,18 +24,18 @@ module.exports = function(grunt) {
 					strictMath: true,
 					sourceMap: true,
 					sourceMapURL: 'styles.css.map',
-					sourceMapFilename: '<%= env.dev %>/assets/css/styles.css.map'
+					sourceMapFilename: '<%%= env.dev %>/assets/css/styles.css.map'
 				},
-				src: '<%= env.src %>/assets/less/styles.less',
-				dest: '<%= env.dev %>/assets/css/styles.css'
+				src: '<%%= env.src %>/assets/less/styles.less',
+				dest: '<%%= env.dev %>/assets/css/styles.css'
 			},
 			dist: {
 				options: {
 					strictMath: true,
 					sourceMap: false,
 				},
-				src: '<%= env.src %>/assets/less/styles.less',
-				dest: '<%= env.dist %>/assets/css/styles.css'
+				src: '<%%= env.src %>/assets/less/styles.less',
+				dest: '<%%= env.dist %>/assets/css/styles.css'
 			}
 		},
 		/**
@@ -52,10 +52,10 @@ module.exports = function(grunt) {
 				]
 			},
 			dev: {
-				src: '<%= env.dev %>/assets/css/styles.css'
+				src: '<%%= env.dev %>/assets/css/styles.css'
 			},
 			dist: {
-				src: '<%= env.dist %>/assets/css/styles.css'
+				src: '<%%= env.dist %>/assets/css/styles.css'
 			},
 		},
 		/**
@@ -69,8 +69,8 @@ module.exports = function(grunt) {
 				roundingPrecision: -1
 			},
 			dist: {
-				src: '<%= env.dev %>/assets/css/styles.css',
-				dest: '<%= env.dist %>/assets/css/styles.css'
+				src: '<%%= env.dev %>/assets/css/styles.css',
+				dest: '<%%= env.dist %>/assets/css/styles.css'
 			}
 		},
 
@@ -84,17 +84,17 @@ module.exports = function(grunt) {
 			dev: {
 				files: [{
 					expand: true,
-					cwd: '<%= env.src %>/assets/img/',
+					cwd: '<%%= env.src %>/assets/img/',
 					src: ['{,*/}.{png,jpg,gif,svg}'],
-					dest: '<%= env.dev %>/assets/img/'
+					dest: '<%%= env.dev %>/assets/img/'
 				}]
 			},
 			dist: {
 				files: [{
 					expand: true,
-					cwd: '<%= env.src %>/assets/img/',
+					cwd: '<%%= env.src %>/assets/img/',
 					src: ['{,*/}.{png,jpg,gif,svg}'],
-					dest: '<%= env.dist %>/assets/img/'
+					dest: '<%%= env.dist %>/assets/img/'
 				}]
 			}
 		},
@@ -108,8 +108,8 @@ module.exports = function(grunt) {
 		assemble: {
 			options: {
 				layout: 'default.hbs',
-				layoutdir: '<%= env.src %>/templates/layouts/',
-				partials: '<%= env.src %>/templates/partials/*.hbs',
+				layoutdir: '<%%= env.src %>/templates/layouts/',
+				partials: '<%%= env.src %>/templates/partials/*.hbs',
 				helpers: 'prettify',
 				prettify: {
 					condense: true,
@@ -121,23 +121,23 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-					assets: '<%= env.dev %>/assets',
-					site: { root: '<%= env.dev %>' }
+					assets: '<%%= env.dev %>/assets',
+					site: { root: '<%%= env.dev %>' }
 				},
 				expand: true,
-				cwd: '<%= env.src %>/pages/',
+				cwd: '<%%= env.src %>/pages/',
 				src: '**/*.{hbs,html,md}',
-				dest: '<%= env.dev %>/'
+				dest: '<%%= env.dev %>/'
 			},
 			dist: {
 				options: {
-					assets: '<%= env.dist %>/assets',
-					site: { root: '<%= env.dist %>' }
+					assets: '<%%= env.dist %>/assets',
+					site: { root: '<%%= env.dist %>' }
 				},
 				expand: true,
-				cwd: '<%= env.src %>/pages/',
+				cwd: '<%%= env.src %>/pages/',
 				src: '**/*.{hbs,html,md}',
-				dest: '<%= env.dist %>/'
+				dest: '<%%= env.dist %>/'
 			}
 		},
 
@@ -151,17 +151,17 @@ module.exports = function(grunt) {
 			dev: {
 				files: {
 						expand: true,
-						cwd: '<%= env.src %>/assets/',
+						cwd: '<%%= env.src %>/assets/',
 						src: ['type/*','js/lib/*.js','js/main.js'],
-						dest: '<%= env.dev %>/assets/'
+						dest: '<%%= env.dev %>/assets/'
 				}
 			},np
 			dist: {
 				files: {
 						expand: true,
-						cwd: '<%= env.src %>/assets/',
+						cwd: '<%%= env.src %>/assets/',
 						src: ['type/*','js/lib/*.js','js/main.js'],
-						dest: '<%= env.dist %>/assets/'
+						dest: '<%%= env.dist %>/assets/'
 				}
 			}
 		},
@@ -172,12 +172,12 @@ module.exports = function(grunt) {
 				nonull: true
 			},
 			dev: {
-				src: ['<%= env.src %>/assets/js/plugins/*.js'],
-				dest: '<%= env.dev %>/assets/js/plugins.js'
+				src: ['<%%= env.src %>/assets/js/plugins/*.js'],
+				dest: '<%%= env.dev %>/assets/js/plugins.js'
 			},
 			dist: {
-				src: ['<%= env.src %>/assets/js/plugins/*.js'],
-				dest: '<%= env.dist %>/assets/js/plugins.js'
+				src: ['<%%= env.src %>/assets/js/plugins/*.js'],
+				dest: '<%%= env.dist %>/assets/js/plugins.js'
 			}
 		},
 
@@ -185,9 +185,9 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: '<%= env.dev %>/assets/js',
+					cwd: '<%%= env.dev %>/assets/js',
 					src: '{,*/}.js',
-					dest: '<%= env.dist %>/assets/js'
+					dest: '<%%= env.dist %>/assets/js'
 				}]
 			}
 		},
@@ -202,19 +202,19 @@ module.exports = function(grunt) {
 				spawn: false,
 			},
 			less: {
-				files: '<%= env.src %>/assets/less/{,*/}.less',
+				files: '<%%= env.src %>/assets/less/{,*/}.less',
 				tasks: ['less:dev','postcss:dev']
 			},
 			html: {
-				files: '<%= env.src %>/**/*.{hbs,json,yml,html,md}',
+				files: '<%%= env.src %>/**/*.{hbs,json,yml,html,md}',
 				tasks: ['assemble:dev']
 			},
 			img: {
-				files: '<%= env.src %>/assets/img/{,*/}.{jpg,gif,png,jpeg,svg}',
+				files: '<%%= env.src %>/assets/img/{,*/}.{jpg,gif,png,jpeg,svg}',
 				tasks: 'newer:imagemin:dev'
 			},
 			js: {
-				files: '<%= env.src %>/assets/js/{,*/}.js',
+				files: '<%%= env.src %>/assets/js/{,*/}.js',
 				tasks: ['newer:copy:dev','concat:dev']
 			},
 			config: {
