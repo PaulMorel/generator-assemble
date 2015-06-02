@@ -1,4 +1,5 @@
 // Grunt Configuration
+'use strict';
 module.exports = function(grunt) {
 
 	// Task Configuration
@@ -32,7 +33,7 @@ module.exports = function(grunt) {
 			dist: {
 				options: {
 					strictMath: true,
-					sourceMap: false,
+					sourceMap: false
 				},
 				src: '<%%= env.src %>/assets/less/styles.less',
 				dest: '<%%= env.dist %>/assets/css/styles.css'
@@ -46,17 +47,19 @@ module.exports = function(grunt) {
 		 */
 		postcss: {
 			options: {
-				map: true,
 				processors: [
-					require('autoprefixer-core')({ browsers: ['last 3 version'] }).postcss
+					require('autoprefixer-core')({ browsers: ['last 3 version'] })
 				]
 			},
 			dev: {
+				options: {
+					map: true
+				},
 				src: '<%%= env.dev %>/assets/css/styles.css'
 			},
 			dist: {
 				src: '<%%= env.dist %>/assets/css/styles.css'
-			},
+			}
 		},
 		/**
 		 * CSS Minimization
@@ -113,7 +116,7 @@ module.exports = function(grunt) {
 				helpers: 'prettify',
 				prettify: {
 					condense: true,
-					padcomments: false,
+					padcomments: true,
 					indent_inner_html: false,
 					indent: 4,
 					wrap_line_length: 0
@@ -149,20 +152,20 @@ module.exports = function(grunt) {
 		 */
 		copy: {
 			dev: {
-				files: {
+				files: [{
 						expand: true,
 						cwd: '<%%= env.src %>/assets/',
 						src: ['type/*','js/lib/*.js','js/main.js'],
 						dest: '<%%= env.dev %>/assets/'
-				}
-			},np
+				}]
+			},
 			dist: {
-				files: {
+				files: [{
 						expand: true,
 						cwd: '<%%= env.src %>/assets/',
 						src: ['type/*','js/lib/*.js','js/main.js'],
 						dest: '<%%= env.dist %>/assets/'
-				}
+				}]
 			}
 		},
 
@@ -199,7 +202,7 @@ module.exports = function(grunt) {
 		 */
 		watch: {
 			options: {
-				spawn: false,
+				spawn: false
 			},
 			less: {
 				files: '<%%= env.src %>/assets/less/{,*/}.less',
@@ -237,6 +240,6 @@ module.exports = function(grunt) {
 
 	// Task Registering
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build:dev', ['less:dev', 'postcss:dev', 'copy:dev', 'imagemin:dev', 'concat:dev', 'assemble:dev' ]);
+	grunt.registerTask('build:dev', ['less:dev', 'postcss:dev', 'copy:dev', 'imagemin:dev', 'concat:dev', 'assemble:dev']);
 	grunt.registerTask('build:dist', ['less:dist', 'postcss:dist', 'cssmin:dist', 'copy:dist', 'concat:dist', 'uglify:dist', 'imagemin:dist', 'assemble:dist']);
 };
