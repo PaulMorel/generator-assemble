@@ -15,9 +15,6 @@ module.exports = function(grunt) {
 
 		/**
 		 * LESS Compiler
-		 *
-		 * Compiles .less files to .css
-		 * and builds corresponding source map.
 		 */
 		less: {
 			dev: {
@@ -39,17 +36,13 @@ module.exports = function(grunt) {
 				dest: '<%%= env.dist %>/assets/css/styles.css'
 			}
 		},
+
 		/**
-		 * CSS Postprocessor
-		 *
-		 * Applies processors to the CSS after compilation
-		 * and rebuilds the source map.
+		 * Autoprefixer
 		 */
-		postcss: {
+		autoprefixer: {
 			options: {
-				processors: [
-					require('autoprefixer-core')({ browsers: ['last 3 version'] })
-				]
+				browsers: ['last 3 versions', 'ie 8', 'ie 9']
 			},
 			dev: {
 				options: {
@@ -61,10 +54,9 @@ module.exports = function(grunt) {
 				src: '<%%= env.dist %>/assets/css/styles.css'
 			}
 		},
+
 		/**
 		 * CSS Minimization
-		 *
-		 * Minifies CSS after postprocessing.
 		 */
 		cssmin: {
 			options: {
@@ -79,9 +71,6 @@ module.exports = function(grunt) {
 
 		/**
 		 * Image Compressor
-		 *
-		 * Compresses images better.
-		 * Slightly lossy compression.
 		 */
 		imagemin: {
 			dev: {
@@ -104,9 +93,6 @@ module.exports = function(grunt) {
 
 		/**
 		 * HTML Templating
-		 *
-		 * Bake static HTML for production while
-		 * using modular files while in development.
 		 */
 		assemble: {
 			options: {
@@ -146,9 +132,6 @@ module.exports = function(grunt) {
 
 		/**
 		 * File Copying
-		 *
-		 * Copy files from source that
-		 * don't need processing.
 		 */
 		copy: {
 			dev: {
@@ -169,6 +152,9 @@ module.exports = function(grunt) {
 			}
 		},
 
+		/**
+		 * JS Plugin Concatenating
+		 */
 		concat: {
 			options: {
 				separator: ';\n',
@@ -184,6 +170,9 @@ module.exports = function(grunt) {
 			}
 		},
 
+		/**
+		 * JS Minimization
+		 */
 		uglify: {
 			dist: {
 				files: [{
@@ -197,8 +186,6 @@ module.exports = function(grunt) {
 
 		/**
 		 * File Monitoring
-		 *
-		 * Watches for file changes.
 		 */
 		watch: {
 			options: {
@@ -234,12 +221,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('assemble');
 
 	// Task Registering
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build:dev', ['less:dev', 'postcss:dev', 'copy:dev', 'imagemin:dev', 'concat:dev', 'assemble:dev']);
-	grunt.registerTask('build:dist', ['less:dist', 'postcss:dist', 'cssmin:dist', 'copy:dist', 'concat:dist', 'uglify:dist', 'imagemin:dist', 'assemble:dist']);
+	grunt.registerTask('build:dev', ['less:dev', 'autoprefixer:dev', 'copy:dev', 'imagemin:dev', 'concat:dev', 'assemble:dev']);
+	grunt.registerTask('build:dist', ['less:dist', 'autoprefixer:dist', 'cssmin:dist', 'copy:dist', 'concat:dist', 'uglify:dist', 'imagemin:dist', 'assemble:dist']);
 };
