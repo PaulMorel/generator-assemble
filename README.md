@@ -20,17 +20,29 @@ In your new project folder, initialize the project:
 
 	yo rigel
 
-Run the build process:
+The build process is handled by `grunt`.
+
+### Grunt Tasks
+
+The generator comes with 3 main `grunt` tasks:
 
 	grunt
+	
+ The `default` task watches for changes in the `src/` folder. It watches the LESS files, assemble pages & templates, Javascript and images. The files are then processed by their appropriate task and placed in their respective sub-folders. The end results are placed in the `dev/` folder.
 
-This will automatically watch all the appropriate folders for changes.
+	grunt build:dev
 
-### Included Grunt Tasks
+ The `build:dev` task goes through every task except for `cssmin` and `uglify`. It compiles and processes every file that requires it. The end results are placed in the `dev/` folder.
+
+	grunt build:dist
+
+ The `build:dist` task goes through every task. It compiles, processes and minifies every file that requires it. The end results are placed in the `dist/` folder and potentially ready to be pushed to production.
+
+#### Included Grunt Tasks
 
 - assemble
 - grunt-contrib-less
-- grunt-postcss
+- grunt-autoprefixer
 - grunt-contrib-cssmin
 - grunt-contrib-watch
 - grunt-contrib-clean
