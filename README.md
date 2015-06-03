@@ -2,8 +2,8 @@
 
 Rigel is Yeoman generator for static sites built using Assemble, Grunt and LESS.
 
-Rigel is also the brightest star in the constellation Orion and the seventh brightest star in the night sky.
-http://en.wikipedia.org/wiki/Rigel
+Rigel is also the brightest star in the constellation Orion and the seventh brightest star in the night sky. [Read more →](http://en.wikipedia.org/wiki/Rigel)
+
 
 ## Install
 If you haven't already, install Yeoman.
@@ -27,7 +27,7 @@ The build process is handled by `grunt`.
 The generator comes with 3 main `grunt` tasks:
 
 	grunt
-	
+
  The `default` task watches for changes in the `src/` folder. It watches the LESS files, assemble pages & templates, Javascript and images. The files are then processed by their appropriate task and placed in their respective sub-folders. The end results are placed in the `dev/` folder.
 
 	grunt build:dev
