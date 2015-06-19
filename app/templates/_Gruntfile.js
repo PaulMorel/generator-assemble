@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%%= env.src %>/assets/img/',
-					src: ['{,*/}.{png,jpg,gif,svg}'],
+					src: ['{,*/}*.{png,jpg,gif,svg}'],
 					dest: '<%%= env.dev %>/assets/img/'
 				}]
 			},
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%%= env.src %>/assets/img/',
-					src: ['{,*/}.{png,jpg,gif,svg}'],
+					src: ['{,*/}*.{png,jpg,gif,svg}'],
 					dest: '<%%= env.dist %>/assets/img/'
 				}]
 			}
@@ -178,7 +178,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: '<%%= env.dev %>/assets/js',
-					src: '{,*/}.js',
+					src: '{,*/}*.js',
 					dest: '<%%= env.dist %>/assets/js'
 				}]
 			}
@@ -192,7 +192,7 @@ module.exports = function(grunt) {
 				spawn: false
 			},
 			less: {
-				files: '<%%= env.src %>/assets/less/{,*/}.less',
+				files: '<%%= env.src %>/assets/less/{,*/}*.less',
 				tasks: ['less:dev','postcss:dev']
 			},
 			html: {
@@ -200,11 +200,11 @@ module.exports = function(grunt) {
 				tasks: ['assemble:dev']
 			},
 			img: {
-				files: '<%%= env.src %>/assets/img/{,*/}.{jpg,gif,png,jpeg,svg}',
+				files: '<%%= env.src %>/assets/img/{,*/}*.{jpg,gif,png,svg}',
 				tasks: 'newer:imagemin:dev'
 			},
 			js: {
-				files: '<%%= env.src %>/assets/js/{,*/}.js',
+				files: '<%%= env.src %>/assets/js/{,*/}*.js',
 				tasks: ['newer:copy:dev','concat:dev']
 			},
 			config: {
