@@ -1,6 +1,6 @@
 {
 	"name": "generator-rigel",
-	"version": "0.1.7",
+	"version": "0.2.0",
 	"description": "Rigel is a Yeoman generator that uses Grunt, LESS and Assemble to creat static sites.",
 	"license": "MIT",
 	"main": "app/index.js",
@@ -17,6 +17,9 @@
 	"files": [
 		"app"
 	],
+	"scripts": {
+		"test": "mocha"
+	},
 	"keywords": [
 		"yeoman-generator",
 		"less",
@@ -26,9 +29,14 @@
 		"static"
 	],
 	"dependencies": {
-		"yeoman-generator": "^0.17.0"
+		"yeoman-generator": "^0.17.0",
+	    "chalk": "^1.0.0",
+	    "yosay": "^1.0.2"
 	},
 	"peerDependencies": {
 		"yo": ">=1.0.0"
+	},
+	"devDependencies": {
+		"mocha": "*"
 	}
 }
