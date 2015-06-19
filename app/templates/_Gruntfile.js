@@ -193,7 +193,7 @@ module.exports = function(grunt) {
 			},
 			less: {
 				files: '<%%= env.src %>/assets/less/{,*/}*.less',
-				tasks: ['less:dev','postcss:dev']
+				tasks: ['less:dev','autoprefixer:dev']
 			},
 			html: {
 				files: '<%%= env.src %>/**/*.{hbs,json,yml,html,md}',
